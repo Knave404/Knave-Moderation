@@ -1,5 +1,5 @@
 module.exports = {
-  "tag": "✰",
+  "tag": "",
   "tag2": "•",
   "serverid": "",
   "sesknal": "",
