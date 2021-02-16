@@ -1,6 +1,8 @@
 const chalk = require('chalk');
 const moment = require('moment');
 const Discord = require('discord.js');
+const config = require("../config.js");
+
 
 const ayarlar = require('../ayarlar.json');
 
