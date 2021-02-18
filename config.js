@@ -16,7 +16,6 @@ module.exports = {
   "mutelog": "",
   "vmutelog": "",
   "chatkanalı": "",
-  "taglog": "",
   "hgkanal": "",
   "toplantikanal": "",
   //-------------------------------------------------------------------------------\/
@@ -26,7 +25,6 @@ module.exports = {
   "muterol": "",
   "yetkilirol": "",
   "kayıtcırol": "",
-  "ekiprol": "",
   "katıldırol": "",
   //-------------------------------------------------------------------------------\/
   "onayemoji": "",
