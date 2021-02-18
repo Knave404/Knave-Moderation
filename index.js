@@ -183,35 +183,35 @@ const kiltifat = [
 
   //------------------------------------------------------------------------------------------------------------\\
 
-  client.on('userUpdate', async (oldUser, newUser) => {
-    var knaveetiket = config.tag
-    let sunucu = client.guilds.cache.find(e => e.id === config.serverid)
-    let knaverol = sunucu.roles.cache.find(a => a.id === config.ekiprol) 
+ client.on('userUpdate', async (oldUser, newUser) => {
+    var knaveetiket = "tag"
+    let sunucu = client.guilds.cache.find(e => e.id === "sunucu id")
+    let knaverol = sunucu.roles.cache.find(a => a.id === "ekip rol id")
     let üye = sunucu.members.cache.get(newUser.id)
-    if (newUser.discriminator.includes(knaveetiket) && !oldUser.username.includes(knaveetiket)) {
+    if (newUser.discriminator.includes(knaveetiket) && !oldUser.discriminator.includes(knaveetiket)) {
       üye.roles.add(knaverol)
       
       const knaevlog = new Discord.MessageEmbed()
       .setColor(`BLACK`)
       .setDescription(`**<@${newUser.id}> Tagımızı Aldığı İçin ${knaverol} Rolü Verildi**`)
-      client.channels.cache.get((config.taglog)).send(knaevlog) 
+      client.channels.cache.get(`log kanal id`).send(knaevlog)
   
     }
   }
             );
   
   client.on('userUpdate', async (oldUser, newUser) => {
-    var knave31 = config.tag
-    let sunucu = client.guilds.cache.find(e => e.id === config.serverid)
-    let knave1 = sunucu.roles.cache.find(a => a.id === config.ekiprol)
+    var knave31 = "tag"
+    let sunucu = client.guilds.cache.find(e => e.id === "sunucu id")
+    let knave1 = sunucu.roles.cache.find(a => a.id === "ekip rol id")
     let üye = sunucu.members.cache.get(oldUser.id)
-    if (oldUser.discriminator.includes(knave31) && !newUser.username.includes(knave31)) {
+    if (oldUser.discriminator.includes(knave31) && !newUser.discriminator.includes(knave31)) {
       üye.roles.remove(knave1)
     
       let knave = new Discord.MessageEmbed()
       .setColor(`RED`)
       .setDescription(`**<@${oldUser.id}> Tagımızı Sildiği İçin ${knave1} Rolü Alındı**`)
-      client.channels.cache.get(config.taglog).send(knave)
+      client.channels.cache.get(`log kanal id`).send(knave)
   }
   }
   ); 
