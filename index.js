@@ -22,17 +22,17 @@ const log = message => {//
     console.log(`${message}`);//
 };
 
-client.commands = new Discord.Collection();//
-client.aliases = new Discord.Collection();//
-fs.readdir('./komutlar/', (err, files) => {//
-    if (err) console.error(err);//
-    log(`Knavenin Komutları ${files.length} bu kdr simdi yuklenio`);//
-    files.forEach(f => {//
-        let props = require(`./komutlar/${f}`);//
-        log(`${props.help.name} Eklendi :P`);//
-        client.commands.set(props.help.name, props);//
-        props.conf.aliases.forEach(alias => {//
-            client.aliases.set(alias, props.help.name);//
+client.commands = new Discord.Collection();
+client.aliases = new Discord.Collection();
+fs.readdir('./komutlar/', (err, files) => {
+    if (err) console.error(err);
+    log(`Knavenin Komutları ${files.length} bu kdr simdi yuklenio`);
+    files.forEach(f => {
+        let props = require(`./komutlar/${f}`);
+        log(`${props.help.name} Eklendi :P`);
+        client.commands.set(props.help.name, props);
+        props.conf.aliases.forEach(alias => {
+            client.aliases.set(alias, props.help.name);
         });
     });
 });
@@ -188,7 +188,7 @@ const kiltifat = [
     let sunucu = client.guilds.cache.find(e => e.id === "sunucu id")
     let knaverol = sunucu.roles.cache.find(a => a.id === "ekip rol id")
     let üye = sunucu.members.cache.get(newUser.id)
-    if (newUser.discriminator.includes(knaveetiket) && !oldUser.discriminator.includes(knaveetiket)) {
+    if (newUser.discriminator.includes(knaveetiket) && !oldUser.username.includes(knaveetiket)) {
       üye.roles.add(knaverol)
       
       const knaevlog = new Discord.MessageEmbed()
@@ -205,7 +205,7 @@ const kiltifat = [
     let sunucu = client.guilds.cache.find(e => e.id === "sunucu id")
     let knave1 = sunucu.roles.cache.find(a => a.id === "ekip rol id")
     let üye = sunucu.members.cache.get(oldUser.id)
-    if (oldUser.discriminator.includes(knave31) && !newUser.discriminator.includes(knave31)) {
+    if (oldUser.discriminator.includes(knave31) && !newUser.username.includes(knave31)) {
       üye.roles.remove(knave1)
     
       let knave = new Discord.MessageEmbed()
