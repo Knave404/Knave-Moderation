@@ -1,19 +1,18 @@
-const Discord = require('discord.js');//
-const client = new Discord.Client();//
-const ayarlar = require('./ayarlar.json');//
-const chalk = require('chalk');//
-const canvacord = require("canvacord");
-const moment = require('moment');//
-var Jimp = require('jimp');//
-const { Client, Util } = require('discord.js');//
-const fs = require('fs');//
-const db = require('quick.db');//
-const express = require('express');//
-const config = require("./config.js");//
-require('./util/eventLoader.js')(client);//
-const path = require('path');//
-const snekfetch = require('snekfetch');//
-const ms = require('ms');//
+const Discord = require('discord.js');
+const client = new Discord.Client();
+const ayarlar = require('./ayarlar.json');
+const chalk = require('chalk');
+const moment = require('moment');
+var Jimp = require('jimp');
+const { Client, Util } = require('discord.js');
+const fs = require('fs');
+const db = require('quick.db');
+const express = require('express');
+const config = require("./config.js");
+require('./util/eventLoader.js')(client);
+const path = require('path');
+const snekfetch = require('snekfetch');
+const ms = require('ms');
 const tags = require('common-tags');
 //
 
@@ -27,12 +26,10 @@ client.commands = new Discord.Collection();//
 client.aliases = new Discord.Collection();//
 fs.readdir('./komutlar/', (err, files) => {//
     if (err) console.error(err);//
-    log(`‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
-    ${files.length} komut yüklenecek.
-‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒`);//
+    log(`Knavenin Komutları ${files.length} bu kdr simdi yuklenio`);//
     files.forEach(f => {//
         let props = require(`./komutlar/${f}`);//
-        log(`[KOMUT] | ${props.help.name} Eklendi.`);//
+        log(`${props.help.name} Eklendi :P`);//
         client.commands.set(props.help.name, props);//
         props.conf.aliases.forEach(alias => {//
             client.aliases.set(alias, props.help.name);//
